@@ -197,7 +197,7 @@ game.difficulty = 'High'
 
 console.log(game.difficulty)
 
-console.log('----------------------------------------------------------------------')
+console.log('-------before 4---------------------------------------------------------------')
 
 /*
 Exercise 4
@@ -255,6 +255,7 @@ for (let i = 0; i < game.gyms.length; i++) {
     }
 
 }
+
 
 
 console.log(game.gyms)
@@ -335,15 +336,15 @@ of your choice from the `pokemon` data to catch it.
 
 Solve Exercise 10 here:
 */
-
-const catchPokemon =(pokemonObj) =>{
+console.log('-----------------10--------------------------------------')
+game.catchPokemon = function(pokemonObj){
 
 game.party.push(pokemonObj)
 
 }
 
-console.log(pokemon[0])
-console.log(game.party)
+game.catchPokemon(pokemon[12])
+console.log(game)
 
 /*
 Exercise 11
@@ -359,13 +360,16 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 Solve Exercise 11 here:
 */
 
-console.log('----------------------------------------------------------------------')
+console.log('---------------------------11-------------------------------------------')
+game.catchPokemon = function(pokemonObj) {
+  this.party.push(pokemonObj);
+  this.items[1].quantity--;
+};
 
-const catchPokemon2 =(pokemonObj) =>{
+game.catchPokemon(pokemon[14]);
 
-game.party.push(pokemonObj)
-game.items[1].quantity=quantity-1
-}
+console.log(game.items);
+
 
 
 /*
