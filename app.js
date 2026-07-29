@@ -476,8 +476,11 @@ game.catchPokemon = function(pokemonObj) {
 
   if(game.items[1].quantity <= 0){
 console.log('Cannot catch pokeballs')
+return
   }
        game.items[1].quantity--;
+       game.party.push(pokemonObj);
+      game.collection.push(pokemonObj); 
 
 }
 
@@ -513,18 +516,18 @@ Solve Exercise 20 here:
 console.log('--------------------20-----------------')
 
 
-game.catchPokemon = function(pokemonObj) {
+game.catchPokemon = function (pokemonObj) {
+    for (let i=0;i<pokemon.length; i++) {
+        if (pokemonObj.toLowerCase() === pokemon[i].name.toLowerCase()) {
+            console.log(pokemonObj)
+            game.items[1].quantity--
+        } else {
+            console.log("doesn't Exist")
+        }
 
-  if(pokemonObj=== pokemon.name){
-  return pokemonObj + '  Not exist in pokemon'
-  }
-       game.items[1].quantity--;
-
+    }
 }
-
 console.log(game.catchPokemon('Pikachu'))
-
-
 
 /*
 Exercise 21
@@ -552,3 +555,19 @@ Log the object when it's constructed.
 
 Solve Exercise 21 here:
 */
+
+console.log('--------------------21-----------------')
+
+const pokemonType = {};
+
+for (let i = 0; i < pokemon.length; i++) {
+    const currentPokemon = pokemon[i];
+
+    if (!pokemonType[currentPokemon.type]) {
+        pokemonType[currentPokemon.type] = [];
+    }
+
+    pokemonType[currentPokemon.type].push(currentPokemon);
+}
+
+console.log(pokemonType);
